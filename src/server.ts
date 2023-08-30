@@ -1,7 +1,10 @@
 import express from 'express';
-const app = express();
 
+const app = express();
 app.use(express.json())
+
+require('./routes/users/user-routes')(app)
+
 const PORT = 3000;
 
 let data: any = []
@@ -14,7 +17,7 @@ app.post('/cadastrar', (req, res) => {
     data.push(req.body)
 
     res.status(200).json({
-        message: "Cadastrado com sucesso!"
+        message: "Cadastrado com !"
     })
 })
 
